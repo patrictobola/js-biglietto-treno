@@ -20,37 +20,37 @@ const age = prompt(`Quanti anni hai?`, 20);
 
 // Calcoliamo il prezzo al km 
 let finalPrice = 0;
-if (isNaN(kms)) {
+if (isNaN(kms) || kms <= 0) {
     alert(errorMessage);
 }   else {
+
     // Verifichiamo che l'utente ha messo un'età plausibile 
-    if (age <= 0 || age >= 150) {
+    if (isNaN(age) || (age <= 0 || age >= 150)) {
         alert(errorMessage = `Inserisci un'età valida, pls!`)
     }   else {
+
         finalPrice = kms * pricePerKm;
+
+        // Vediamo se possiamo applicare o meno uno sconto e informiamo l'utente di un eventuale sconto
+        if ((age > over65) && !(age >= 150)) {
+            discountApplied.innerText = 
+            `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€
+            Abbiamo applicato uno sconto del ${discount65}%
+            Pari a: ${(finalPrice * discount65 / 100).toFixed(2)}€`;
+        
+            finalPrice = finalPrice - (finalPrice * discount65 / 100);
+        }   else if ((age < under18) && !(age <= 0)) {
+            discountApplied.innerText = 
+            `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€
+            Abbiamo applicato uno sconto del ${discount18}%
+            Pari a: ${(finalPrice * discount18 / 100).toFixed(2)}€`;
+        
+            finalPrice = finalPrice - (finalPrice * discount18 / 100);
+        }
+        
+        ticketPlaceholder.innerText = `Il prezzo del tuo biglietto è: ${finalPrice.toFixed(2)}€`
+        yourAge.innerText = `Hai ${age} anni!`;
+        kmSelected.innerText = `Hai selezionato ${kms} kilometri.`
     }
 }
 
-
-console.log(finalPrice)
-
-// Vediamo se possiamo applicare o meno uno sconto 
-if ((age > over65) && !(age >= 150)) {
-    discountApplied.innerText = 
-    `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€
-    Abbiamo applicato uno sconto del ${discount65}%
-    Pari a: ${(finalPrice * discount65 / 100).toFixed(2)}€`;
-
-    finalPrice = finalPrice - (finalPrice * discount65 / 100);
-}   else if ((age < under18) && !(age <= 0)) {
-    discountApplied.innerText = 
-    `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€
-    Abbiamo applicato uno sconto del ${discount18}%
-    Pari a: ${(finalPrice * discount18 / 100).toFixed(2)}€`;
-
-    finalPrice = finalPrice - (finalPrice * discount18 / 100);
-}
-
-ticketPlaceholder.innerText = finalPrice.toFixed(2) + '€'
-yourAge.innerText = `Hai ${age} anni!`;
-kmSelected.innerText = `Hai selezionato ${kms} kilometri.`
