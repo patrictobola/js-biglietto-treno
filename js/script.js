@@ -2,6 +2,7 @@ console.log('JS OK')
 
 // Definiamo le variabili necessarie allo svolgimento della traccia
 const ticketPlaceholder = document.getElementById('ticketPrice');
+const discountApplied = document.getElementById('priceDiscount');
 const pricePerKm = 0.21;
 const under18 = 18;
 const over65 = 65;
@@ -25,9 +26,13 @@ console.log(finalPrice)
 
 // Vediamo se possiamo applicare o meno uno sconto 
 if (age > over65) {
+    discountApplied.innerText = `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€`;
+
     finalPrice = finalPrice - (finalPrice * discount65 / 100);
 }   else if (age < under18) {
+    discountApplied.innerText = `Il prezzo del biglietto era di: ${finalPrice.toFixed(2)}€`;
+
     finalPrice = finalPrice - (finalPrice * discount18 / 100);
 }
 
-ticketPlaceholder.innerText = finalPrice + '€'
+ticketPlaceholder.innerText = finalPrice.toFixed(2) + '€'
