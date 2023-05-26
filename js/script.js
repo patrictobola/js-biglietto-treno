@@ -16,14 +16,14 @@ console.log(pricePerKm, under18, over65, discount18, discount65)
 
 // Creiamo due prompt per gli input dell'utente 
 const kms = prompt(`Quanti km devi percorrere?`, 100)
-const age = prompt(`Quanti anni hai?`, 20);
+
 
 // Calcoliamo il prezzo al km 
 let finalPrice = 0;
 if (isNaN(kms) || kms <= 0) {
     alert(errorMessage);
 }   else {
-
+    const age = prompt(`Quanti anni hai?`, 20);
     // Verifichiamo che l'utente ha messo un'età plausibile 
     if (isNaN(age) || (age <= 0 || age >= 150)) {
         alert(errorMessage = `Inserisci un'età valida, pls!`)
