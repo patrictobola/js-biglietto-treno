@@ -15,7 +15,7 @@ let errorMessage = 'Inserisci il numero di km da effettuare!'
 console.log(pricePerKm, under18, over65, discount18, discount65)
 
 // Creiamo due prompt per gli input dell'utente 
-const kms = prompt(`Quanti km devi percorrere?`, 100)
+const kms = parseInt(prompt(`Quanti km devi percorrere?`, 100).trim());
 
 
 // Calcoliamo il prezzo al km 
@@ -23,7 +23,7 @@ let finalPrice = 0;
 if (isNaN(kms) || kms <= 0) {
     alert(errorMessage);
 }   else {
-    const age = prompt(`Quanti anni hai?`, 20);
+    const age = parseInt(prompt(`Quanti anni hai?`, 20).trim());
     // Verifichiamo che l'utente ha messo un'età plausibile 
     if (isNaN(age) || (age <= 0 || age >= 150)) {
         alert(errorMessage = `Inserisci un'età valida, pls!`)
@@ -51,6 +51,8 @@ if (isNaN(kms) || kms <= 0) {
         ticketPlaceholder.innerText = `Il prezzo del tuo biglietto è: ${finalPrice.toFixed(2)}€`
         yourAge.innerText = `Hai ${age} anni!`;
         kmSelected.innerText = `Hai selezionato ${kms} kilometri.`
+        
+        
+        console.log(finalPrice, age, kms)
     }
 }
-
